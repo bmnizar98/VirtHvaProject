@@ -3,22 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<?php 
-	session_start(); 
-
-	if (!isset($_SESSION['username'])) {
-		$_SESSION['msg'] = "You must log in first";
-		header('location: login.php');
-	}
-
-	if (isset($_GET['logout'])) {
-		session_destroy();
-		unset($_SESSION['username']);
-		header("location: login.php");
-	}
-
-?> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Corporate 1</title>
@@ -58,7 +43,7 @@
                         <a href="#">Home</a>
                     </li>
                     <li>
-                        <a href="register.php">Sign up NOW</a>
+                        <a href="register.php">Sign up</a>
                     </li>
                     <li>
                         <a href="login.php">Sign in</a>
@@ -70,25 +55,6 @@
 							<li><a href="#">....</a></li>
 							<li><a href="#">.....</a></li>
 						</ul>
-					<li> 
-						<!-- notification message -->
-							<?php if (isset($_SESSION['success'])) : ?>
-								<div class="error success" >
-							
-							<?php 
-									echo $_SESSION['success']; 
-									unset($_SESSION['success']);
-							?>
-							
-								</div>
-							<?php endif ?>
-
-							<!-- logged in user information -->
-							<?php  if (isset($_SESSION['username'])) : ?>
-							<strong><?php echo $_SESSION['username']; ?></strong>
-							<a href="index.php?logout='1'" style="color: red;">logout</a> 
-							<?php endif ?>
-					</li>
                 </ul>
 
 				<!-- ZoekBar -->
@@ -112,24 +78,49 @@
 			<p><a class="btn btn-default" href="#">Explore</a></p>
 		</div>
 	</div>
+
+    <!-- Content -->
+    <div class="container">
+
+        <!-- Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Information about virtual machines
+
+                </h1>
+                </div>
+        </div>
+        <!-- /.row -->
+
+        
+
+    </div>
     <!-- /.container -->
 	
 	<footer>
 		<div class="footer-blurb">
-			
-			<p> hier komt er een tekst te staan </p>
-			
-			
-			
-			<p> hier komt er ook een tekst te staan </p
-				
-
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4 footer-blurb-item">
+						<h3><span class="glyphicon glyphicon-fire"></span> Windows 7/8/10 </h3>
+						<p>... Korte Informatie tekst ...</p>
+						<p><a class="btn btn-default" href="#">More info</a></p>
+					</div>
+					<div class="col-sm-4 footer-blurb-item">
+						<h3><span class="glyphicon glyphicon-cloud-upload"></span>  Linux </h3>
+						<p>More info </p>
+						<p><a class="btn btn-default" href="#">More info</a></p>
+					</div>
+					<div class="col-sm-4 footer-blurb-item">
+						<h3><span class="glyphicon glyphicon-leaf"></span>MAC OS</h3>
+						<p></p>
+						<p><a class="btn btn-default" href="#">More info</a></p>
 					</div>
 
-				
-       
-	</footer>
-	
+				</div>
+				<!-- /.row -->	
+			</div>
+        </div>
         
         <div class="small-print">
         	<div class="container">
