@@ -20,7 +20,7 @@
 
 		// form validation: ensure that the form is correctly filled
 		if (empty($username)) { array_push($errors, "Username is required"); }
-		if($_POST == 1){array_push($errors, "Username already taken");}
+		if (count($username) == 1){array_push($errors, "Username already taken");}
 		if (empty($email)) { array_push($errors, "Email is required"); }
 		if (empty($password_1)) { array_push($errors, "Password is required"); }
 
