@@ -9,13 +9,13 @@
 
 	if (!isset($_SESSION['username'])) {
 		$_SESSION['msg'] = "You must log in first";
-		header('location: login.php');
+		header('location: phppages/login.php');
 	}
 
 	if (isset($_GET['logout'])) {
 		session_destroy();
 		unset($_SESSION['username']);
-		header("location: login.php");
+		header("location: phppages/login.php");
 	}
 
 ?>
@@ -58,10 +58,10 @@
                         <a href="#">Home</a>
                     </li>
                     <li>
-                        <a href="../register.php">Sign up NOW</a>
+                        <a href="phppages/register.php">Sign up NOW</a>
                     </li>
                     <li>
-                        <a href="../login.php">Sign in</a>
+                        <a href="phppages/login.php">Sign in</a>
                     </li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Information <span class="caret"></span></a>
