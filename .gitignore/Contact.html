@@ -4,10 +4,24 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php
+	session_start();
 
+	if (!isset($_SESSION['username'])) {
+		$_SESSION['msg'] = "You must log in first";
+		header('location: login.php');
+	}
+
+	if (isset($_GET['logout'])) {
+		session_destroy();
+		unset($_SESSION['username']);
+		header("location: login.php");
+	}
+
+?>
  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>SpaceZ- UbuntuInfo</title>
+    <title>SpaceZ -Explore</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -31,9 +45,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="ingelogd.html">
+                <a class="navbar-brand" href="#">
                 	<span class="glyphicon glyphicon-fire"></span>
-
+                    SpaceZ
 
                 </a>
             </div>
@@ -41,21 +55,40 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li class="active">
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="register.php">Sign up NOW</a>
+                    </li>
+                    <li>
+                        <a href="login.php">Sign in</a>
                     </li>
 					<li class="dropdown">
-					<li class="active">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Information <span class="caret"></span></a>
 						<ul class="dropdown-menu" aria-labelledby="about-us">
-							<li><a onclick="scrollWin()"> Ubuntu </a></button></li>
-								<script>
-								function scrollWin() {
-								window.scrollBy(0, 100);
-								}
-							</script>
-  
+            
               <li><a href="Ubuntuinfo.html">Ubuntu</a></li>
               <li><a href="Windowsinfo.html">Windows</a></li>
 						</ul>
+          <?php endif ?>
+					<li>
+						<!-- notification message -->
+							<?php if (isset($_SESSION['success'])) : ?>
+								<div class="error success" >
+
+							<?php
+									echo $_SESSION['success'];
+									unset($_SESSION['success']);
+							?>
+
+								</div>
+
+							<!-- logged in user information -->
+							<?php  if (isset($_SESSION['username'])) : ?>
+							<strong><?php echo $_SESSION['username']; ?></strong>
+							<a href="index.php?logout='1'" style="color: red;">logout</a>
+							<?php endif ?>
+					</li>
                 </ul>
 
 				<!-- ZoekBar -->
@@ -74,36 +107,18 @@
 
 <div class="footer-blurb">
 
+<p> on this page you can find al information about the virtual machines which can be deployed </p>
 
 </div>
 
 	<footer>
 		<div class="footer-blurb">
 
-
-			<p> <h1>Ubuntu </h1> </p>
-      <p>
-        Ubuntu is an open source operating system for computers. It is a Linux
-        distribution based on the Debian architecture. It is usually run on personal computers, and is also
-        popular on network servers, usually running the Ubuntu Server variant, with enterprise-class features.
-        Ubuntu runs on the most popular architectures, including Intel, AMD, and ARM-based machines.
-
-        <p>
-        Ubuntu is also available for tablets and smartphones, with the Ubuntu Touch edition.
-        Ubuntu is published by Canonical Ltd, who offer commercial support. It is based on free software and named
-        after the Southern African philosophy of ubuntu (literally, 'human-ness'), which Canonical Ltd.
-        suggests can be loosely translated as "humanity to others" or "I am what I am because of who we all are".
-        Ubuntu is the most popular operating system running in hosted environments, so-called "clouds",
-        as it is the most popular server Linux distribution.
-      </p>
-        <p>
-        Development of Ubuntu is led by UK-based Canonical Ltd., a company founded by South African entrepreneur Mark Shuttleworth.
-        Canonical generates revenue through the sale of technical support and other services related to Ubuntu. The
-        Ubuntu project is publicly committed to the principles of open-source software development; people are encouraged
-        to use free software, study how it works, improve upon and distribute it. (WikiPedia)
-        </p>
+			<p> hier komt er een tekst te staan </p>
 
 
+
+			<p> hier komt er ook een tekst te staan </p
 
 
 					</div>

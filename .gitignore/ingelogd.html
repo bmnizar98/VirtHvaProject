@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<?php 
-	session_start(); 
+<?php
+	session_start();
 
 	if (!isset($_SESSION['username'])) {
 		$_SESSION['msg'] = "You must log in first";
@@ -18,23 +18,22 @@
 		header("location: login.php");
 	}
 
-?> 
+?>
  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>Corporate 1</title>
+    <title>SpaceZ- Login</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
     <link href="css/custom.css" rel="stylesheet">
-	
+
 
 </head>
 
 <body>
 
-    <!-- Navigatie -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Logo -->
@@ -46,12 +45,13 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                	<span class="glyphicon glyphicon-fire"></span> 
-                    VirtualWorld
-                
+                	<span class="glyphicon glyphicon-fire"></span>
+                    SpaceZ
+
                 </a>
             </div>
             <!-- Navigatiebar links -->
+            <!-- Navigatie -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li class="active">
@@ -60,27 +60,27 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Information <span class="caret"></span></a>
 						<ul class="dropdown-menu" aria-labelledby="about-us">
-							<li><a href="#"> ... </a></li>
-							<li><a href="#">....</a></li>
-							<li><a href="#">.....</a></li>
+            
+              <li><a href="Ubuntuinfo.html">Ubuntu</a></li>
+              <li><a href="Windowsinfo.html">Windows</a></li>
 						</ul>
-					<li> 
+					<li>
 						<!-- notification message -->
 							<?php if (isset($_SESSION['success'])) : ?>
 								<div class="error success" >
-							
-							<?php 
-									echo $_SESSION['success']; 
+
+							<?php
+									echo $_SESSION['success'];
 									unset($_SESSION['success']);
 							?>
-							
+
 								</div>
 							<?php endif ?>
 
 							<!-- logged in user information -->
 							<?php  if (isset($_SESSION['username'])) : ?>
 							<strong><?php echo $_SESSION['username']; ?></strong>
-							<a href="index.php?logout='1'" style="color: red;">logout</a> 
+							<a href="index.php?logout='1'" style="color: red;">logout</a>
 							<?php endif ?>
 					</li>
                 </ul>
@@ -120,11 +120,11 @@
         </div>
         <!-- /.row -->
 
-        
+
 
     </div>
     <!-- /.container -->
-	
+
 	<footer>
 		<div class="footer-blurb">
 			<div class="container">
@@ -146,30 +146,30 @@
 					</div>
 
 				</div>
-				<!-- /.row -->	
+				<!-- /.row -->
 			</div>
         </div>
-        
+
         <div class="small-print">
         	<div class="container">
-        		<p><a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
+        		<p><a href="Conditions.html">Terms &amp; Conditions</a> | <a href="Privacypolicy.html">Privacy Policy</a> | <a href="Contact.html">Contact</a></p>
         	</div>
         </div>
 	</footer>
 
-	
+
     <!-- jQuery -->
     <script src="js/jquery-1.11.3.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-	
+
 	<!-- IE10 viewport bug workaround -->
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
-	
+
 	<!-- Placeholder Images -->
 	<script src="js/holder.min.js"></script>
-	
+
 </body>
 
 </html>
