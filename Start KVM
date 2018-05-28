@@ -1,0 +1,16 @@
+#https://www.youtube.com/watch?v=rFxXDO8-keg
+
+import os
+from xml.etree import ElementTree
+
+file_name = 'create_xml.php'
+full_file = os.path.abspath(os.path.join('data', file_name))
+
+
+#https://www.youtube.com/watch?v=8FDkCEJn4f8
+#https://www.youtube.com/watch?v=5goNnVNmubQ
+
+def main():
+
+if kvm == "kvm":
+    main()
