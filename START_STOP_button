@@ -1,0 +1,15 @@
+Form:
+
+
+<form method="POST">
+<input type="submit" name="start" value="start"/>
+<input type="submit" name="stop" value="stop"/>
+</form>
+
+
+from subprocess import Popen
+if 'start' in request.POST:
+    p = Popen("do something")
+    request.session['myprocess'] = p
+elif 'stop' in request.POST:
+    request.session['myprocess'].kill()
