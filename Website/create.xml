@@ -1,0 +1,43 @@
+<?xml version='1.0' standalone='yes'?>
+				<domain type='kvm'>
+                <name>$vm_name</name>
+                <memory>$memory</memory>
+                <currentMemory>$memory</currentMemory>
+                <vcpu>"$vcpu"</vcpu>
+                <os>
+                    <type arch='x86_64' machine='pc'>hvm</type>
+                    <boot dev='cdrom'/>
+                </os>
+                <features>
+                    <acpi/>
+                    <apic/>
+                    <pae/>
+                </features>
+                <clock offset='localtime'/>
+                <on_poweroff>destroy</on_poweroff>
+                <on_reboot>restart</on_reboot>
+                <on_crash>destroy</on_crash>
+                <devices>
+					<emulator>/usr/bin/qemu-system-x86_64</emulator>
+                    <disk type='file' device='disk'>
+                        <driver name='qemu' type='qcow2'/>
+                        <source file='/var/lib/libvirt/images/"$vm_name".qcow2'/>
+                        <target dev='hda' bus='ide'/>
+                    </disk>
+                    <disk type='file' device='cdrom'>
+                        <source file='/home/jens/Downloads/ubuntu.iso"'/>
+                        <target dev='hdb' bus='ide'/>
+                        <readonly/>
+                    </disk>
+					<interface type='network'>
+						<source network='default'/>
+                        <mac address='$mac1'/>
+                    </interface>
+                    <input type='mouse' bus='ps2'/>
+                    <graphics type='vnc' ' port='-1' websocket='-1' autoport='yes' keymap='en-us' listen='0.0.0.0'/>
+                </devices>
+            </domain>";
+
+
+
+
